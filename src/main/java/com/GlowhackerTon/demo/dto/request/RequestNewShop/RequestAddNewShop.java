@@ -1,19 +1,16 @@
-package com.GlowhackerTon.demo.dto.request;
+package com.GlowhackerTon.demo.dto.request.RequestNewShop;
+
+import com.GlowhackerTon.demo.dto.request.RequestGetComment;
+
+import java.util.List;
 
 public class RequestAddNewShop {
 
     private Integer type;
-
     private String name;
-
     private String address;
-
     private String telephone;
-
     private String workingTime;
-
-    private String menu; /*** 재준상 ! 여기서 메뉴를 많이 입력받으면 Mapping된 걸 끊어야하는디
-                        어캐할지...?***/
 
     public Integer getType() {
         return type;
@@ -35,7 +32,5 @@ public class RequestAddNewShop {
         return workingTime;
     }
 
-    public String getMenu() {
-        return menu;
-    }
+
 }

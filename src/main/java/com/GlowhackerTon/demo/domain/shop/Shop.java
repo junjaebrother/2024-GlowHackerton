@@ -55,6 +55,30 @@ public class Shop {
         return star;
     }
 
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public String getWorkingHour() {
+        return workingHour;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getBriefExplanation() {
+        return briefExplanation;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public Shop(String name, Long star) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(String.format("%s점포는 존재하지 않습니다."));
