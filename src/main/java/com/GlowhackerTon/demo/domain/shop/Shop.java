@@ -2,6 +2,7 @@ package com.GlowhackerTon.demo.domain.shop;
 
 import com.GlowhackerTon.demo.domain.comment.Comment;
 import com.GlowhackerTon.demo.domain.menu.Menu;
+import com.GlowhackerTon.demo.dto.request.RequestNewShop.RequestAddNewMenu;
 import com.GlowhackerTon.demo.dto.request.RequestPostComment;
 import com.GlowhackerTon.demo.dto.response.ResponseGet.ResponseGetComment;
 import com.GlowhackerTon.demo.dto.response.ResponseGet.ResponseGetMenu;
@@ -34,8 +35,8 @@ public class Shop {
     private String briefExplanation;
 
     private Long star; // 별점 -> 프론트에서 알아서 정수 값 받아와서 ID개수만큼 나눠서 별점 표시할 것
-    private int x;
-    private int y;
+    private Integer x;
+    private Integer y;
     private Integer type;
 
     @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -83,12 +84,17 @@ public class Shop {
         return y;
     }
 
-    public Shop(String name, Long star) {
+    public Shop(String name, String telephone, String address, String workingHour, String briefExplanation, Integer x, Integer y) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(String.format("%s점포는 존재하지 않습니다."));
         }
         this.name = name;
-        this.star = star;
+        this.telephone = telephone;
+        this.workingHour = workingHour;
+        this.briefExplanation = briefExplanation;
+        this.address = address;
+        this.x = x;
+        this.y = y;
     }
 
     public List<ResponseGetMenu> getMenu(){
@@ -105,7 +111,15 @@ public class Shop {
 
     public void saveComment(RequestPostComment request){
         this.comment.add(new Comment(this, request.getComment(), request.getStarPoint()));
+        Integer sum = 0;
+        for(Comment c:comment){
+            sum += c.getStarPoint();
+        }
+        this.star = (long) (sum / (comment.size()));
+    }
 
+    public void saveMenu(RequestAddNewMenu request){
+        this.menu.add(new Menu(this, request.getName(), request.getPrice()));
     }
 }
 

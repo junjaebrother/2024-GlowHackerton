@@ -1,6 +1,8 @@
 package com.GlowhackerTon.demo.controller.shop;
 
 import com.GlowhackerTon.demo.dto.request.RequestAll.RequestAllShop;
+import com.GlowhackerTon.demo.dto.request.RequestNewShop.RequestAddNewMenu;
+import com.GlowhackerTon.demo.dto.request.RequestNewShop.RequestAddNewShop;
 import com.GlowhackerTon.demo.dto.request.RequestPostComment;
 import com.GlowhackerTon.demo.dto.request.RequestShop.RequestShopDetails;
 import com.GlowhackerTon.demo.dto.request.RequestShop.RequestSummerizedShop;
@@ -49,10 +51,15 @@ public class ShopController {
         shopService.postShopComment(request);
     }
 
-     @PostMapping("/shop/new")
-     public void addNewShop(@RequestBody RequestAddNewShop request){
-        return shopService.addNewShop(request);
-     }
+    @PostMapping("/shop/new")
+    public void addNewShop(@RequestBody RequestAddNewShop request){
+        shopService.addNewShop(request);
+    }
+
+    @PostMapping("/shop/new/menu")
+    public void addNewMenu(@RequestBody RequestAddNewMenu request){
+        shopService.addNewMenu(request);
+    }
 
 
 

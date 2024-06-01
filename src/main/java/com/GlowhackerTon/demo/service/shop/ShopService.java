@@ -6,6 +6,7 @@ import com.GlowhackerTon.demo.domain.menu.MenuRepository;
 import com.GlowhackerTon.demo.domain.shop.Shop;
 import com.GlowhackerTon.demo.domain.shop.ShopRepository;
 import com.GlowhackerTon.demo.dto.request.RequestAll.RequestAllShop;
+import com.GlowhackerTon.demo.dto.request.RequestNewShop.RequestAddNewMenu;
 import com.GlowhackerTon.demo.dto.request.RequestNewShop.RequestAddNewShop;
 import com.GlowhackerTon.demo.dto.request.RequestPostComment;
 import com.GlowhackerTon.demo.dto.request.RequestShop.RequestShopDetails;
@@ -62,10 +63,16 @@ public class ShopService {
         Shop shop = shopRepository.findByName(request.getName());
         shop.saveComment(request);
     }
-    /*
+
     @Transactional
     public void addNewShop(RequestAddNewShop request) {
-        Shop shop = shopRepository.save(new Shop())
+        shopRepository.save(new Shop(request.getName(), request.getTelephone(), request.getAddress(),
+                request.getWorkingTime(), request.getBreif(), request.getX(), request.getY()));
     }
-    */
+
+    @Transactional
+    public void addNewMenu(RequestAddNewMenu request){
+        Shop shop = shopRepository.findByName(request.getMarketName());
+        shop.saveMenu(request);
+    }
 }

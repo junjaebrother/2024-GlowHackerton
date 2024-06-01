@@ -7,6 +7,13 @@ public class RequestAddNewShop {
     private String address;
     private String telephone;
     private String workingTime;
+    private String Breif;
+    private Integer x;
+    private Integer y;
+
+    public String getBreif() {
+        return Breif;
+    }
 
     public Integer getType() {
         return type;
@@ -18,6 +25,14 @@ public class RequestAddNewShop {
 
     public String getAddress() {
         return address;
+    }
+
+    public Integer getX() {
+        return x;
+    }
+
+    public Integer getY() {
+        return y;
     }
 
     public String getTelephone() {
