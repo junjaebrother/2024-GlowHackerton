@@ -18,4 +18,28 @@ public class ResponseSummerizedShop {
         this.briefExplanation = shop.getBriefExplanation();
         this.star = shop.getStar();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public String getWorkingHour() {
+        return workingHour;
+    }
+
+    public String getBriefExplanation() {
+        return briefExplanation;
+    }
+
+    public Long getStar() {
+        return star;
+    }
 }

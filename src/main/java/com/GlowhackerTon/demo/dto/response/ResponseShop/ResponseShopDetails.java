@@ -13,4 +13,12 @@ public class ResponseShopDetails {
         this.menus = menus;
         this.comments = comments;
     }
+
+    public List<ResponseGetMenu> getMenus() {
+        return menus;
+    }
+
+    public List<ResponseGetComment> getComments() {
+        return comments;
+    }
 }

@@ -8,7 +8,6 @@ import java.util.List;
 
 @Entity
 public class Market {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
@@ -22,6 +21,8 @@ public class Market {
 
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Shop> shop = new ArrayList<>();
+
+    public Market() {}
 
     public Long getId() {
         return id;

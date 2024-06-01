@@ -4,10 +4,18 @@ import com.GlowhackerTon.demo.domain.menu.Menu;
 
 public class ResponseGetMenu {
     private String name;
-    private int price;
+    private Integer price;
 
     public ResponseGetMenu(Menu menu) {
         this.name = menu.getName();
         this.price = menu.getPrice();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPrice() {
+        return price;
     }
 }

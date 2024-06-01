@@ -16,6 +16,10 @@ public class Comment {
     @ManyToOne
     private Shop shop;
 
+    public Comment() {
+
+    }
+
     public String getUserComment() {
         return userComment;
     }

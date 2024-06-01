@@ -8,4 +8,10 @@ public class ResponseAllMarket {
     public ResponseAllMarket(Market market) {
         this.name = market.getName();
     }
+
+    public String getName() {
+        return name;
+    }
+
+
 }
