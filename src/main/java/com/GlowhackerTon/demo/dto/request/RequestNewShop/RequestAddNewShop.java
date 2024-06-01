@@ -8,8 +8,8 @@ public class RequestAddNewShop {
     private String telephone;
     private String workingTime;
     private String Breif;
-    private Integer x;
-    private Integer y;
+    private Long x;
+    private Long y;
 
     public String getBreif() {
         return Breif;
@@ -27,11 +27,11 @@ public class RequestAddNewShop {
         return address;
     }
 
-    public Integer getX() {
+    public Long getX() {
         return x;
     }
 
-    public Integer getY() {
+    public Long getY() {
         return y;
     }
 

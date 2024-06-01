@@ -3,7 +3,7 @@ package com.GlowhackerTon.demo.dto.request.RequestNewShop;
 public class RequestAddNewMenu {
     private String marketName;
     private String name;
-    private int price;
+    private Integer price;
 
     public String getMarketName() {
         return marketName;
@@ -13,7 +13,7 @@ public class RequestAddNewMenu {
         return name;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 

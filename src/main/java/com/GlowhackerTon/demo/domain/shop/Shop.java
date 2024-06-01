@@ -1,6 +1,7 @@
 package com.GlowhackerTon.demo.domain.shop;
 
 import com.GlowhackerTon.demo.domain.comment.Comment;
+import com.GlowhackerTon.demo.domain.market.Market;
 import com.GlowhackerTon.demo.domain.menu.Menu;
 import com.GlowhackerTon.demo.dto.request.RequestNewShop.RequestAddNewMenu;
 import com.GlowhackerTon.demo.dto.request.RequestPostComment;
@@ -31,12 +32,15 @@ public class Shop {
     @Column(nullable = false, length = 20)
     private String address;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 200)
     private String briefExplanation;
 
+    @ManyToOne
+    private Market market;
+
     private Long star; // 별점 -> 프론트에서 알아서 정수 값 받아와서 ID개수만큼 나눠서 별점 표시할 것
-    private Integer x;
-    private Integer y;
+    private Long x;
+    private Long y;
     private Integer type;
 
     @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -76,15 +80,15 @@ public class Shop {
         return briefExplanation;
     }
 
-    public int getX() {
+    public long getX() {
         return x;
     }
 
-    public int getY() {
+    public long getY() {
         return y;
     }
 
-    public Shop(String name, String telephone, String address, String workingHour, String briefExplanation, Integer x, Integer y) {
+    public Shop(String name, String telephone, String address, String workingHour, String briefExplanation, Long x, Long y) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(String.format("%s점포는 존재하지 않습니다."));
         }

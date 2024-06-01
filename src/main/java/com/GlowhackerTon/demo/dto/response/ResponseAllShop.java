@@ -8,4 +8,8 @@ public class ResponseAllShop {
     public ResponseAllShop(Shop market){
         this.name = market.getName();
     }
+
+    public String getName() {
+        return name;
+    }
 }
