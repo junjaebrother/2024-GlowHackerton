@@ -1,5 +1,6 @@
 package com.GlowhackerTon.demo.service.market;
 
+import com.GlowhackerTon.demo.domain.market.Market;
 import com.GlowhackerTon.demo.domain.market.MarketRepository;
 import com.GlowhackerTon.demo.dto.request.RequestMarket;
 import com.GlowhackerTon.demo.dto.response.ResponseAllMarket;
@@ -25,4 +26,9 @@ public class MarketService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
+    public ResponseMarket getOneMarket(RequestMarket requestMarket) {
+        Market market = marketRepository.findByName(requestMarket.getName());
+        return new ResponseMarket(market);
+    }
 }
