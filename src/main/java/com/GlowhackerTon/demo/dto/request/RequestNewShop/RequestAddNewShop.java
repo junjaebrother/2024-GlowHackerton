@@ -1,18 +1,22 @@
 package com.GlowhackerTon.demo.dto.request.RequestNewShop;
 
 public class RequestAddNewShop {
-
+    private String marketName;
     private Integer type;
     private String name;
     private String address;
     private String telephone;
     private String workingTime;
-    private String Breif;
+    private String breif;
     private Long x;
     private Long y;
 
+    public String getMarketName() {
+        return marketName;
+    }
+
     public String getBreif() {
-        return Breif;
+        return breif;
     }
 
     public Integer getType() {

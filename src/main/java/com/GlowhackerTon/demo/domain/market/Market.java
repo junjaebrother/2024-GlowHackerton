@@ -17,7 +17,7 @@ public class Market {
     private String information; // 시장 설명
     private String address;
     private String telephone;
-    private String workingHour;
+    private String workingTime;
 
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Shop> shop = new ArrayList<>();
@@ -45,6 +45,6 @@ public class Market {
     }
 
     public String getWorkingHour() {
-        return workingHour;
+        return workingTime;
     }
 }
