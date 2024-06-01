@@ -23,8 +23,7 @@ public class MarketController {
         return marketService.getAllMarket();
     }
 
-    //@GetMapping("/market/search")
-    //public ResponseMarket getOneMarket(@RequestBody RequestMarket request ){return marketService.getOneMarket(); }
-
-    //
+    /***@GetMapping("/market/search")
+    public ResponseMarket getOneMarket(@RequestBody RequestMarket request ){return marketService.getOneMarket();
+     ***/
 }
