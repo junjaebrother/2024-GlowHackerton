@@ -24,4 +24,5 @@ public class MarketService {
                 .map(ResponseAllMarket::new)
                 .collect(Collectors.toList());
     }
+
 }
