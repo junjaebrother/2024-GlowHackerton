@@ -1,4 +1,4 @@
-package com.GlowhackerTon.demo.dto.request;
+package com.GlowhackerTon.demo.dto.request.RequestAll;
 
 public class RequestAllShop {
     private String name;

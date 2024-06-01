@@ -14,6 +14,13 @@ public class Comment {
     private Integer starPoint;
 
     @ManyToOne
-    private Shop market;
+    private Shop shop;
 
+    public String getUserComment() {
+        return userComment;
+    }
+
+    public Integer getStarPoint() {
+        return starPoint;
+    }
 }
