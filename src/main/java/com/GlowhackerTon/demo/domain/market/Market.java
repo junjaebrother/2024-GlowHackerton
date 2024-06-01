@@ -16,6 +16,9 @@ public class Market {
     @Column(nullable = false, length = 20) // 시장 이름 길이제한 20자
     private String name;
     private String information; // 시장 설명
+    private String address;
+    private String telephone;
+    private String workingHour;
 
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Shop> shop = new ArrayList<>();
@@ -30,5 +33,17 @@ public class Market {
 
     public String getInformation() {
         return information;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public String getWorkingHour() {
+        return workingHour;
     }
 }
