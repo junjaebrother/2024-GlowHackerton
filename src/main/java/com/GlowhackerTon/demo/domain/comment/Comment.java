@@ -20,6 +20,12 @@ public class Comment {
         return userComment;
     }
 
+    public Comment(Shop shop, String userComment, Integer starPoint) {
+        this.shop = shop;
+        this.userComment = userComment;
+        this.starPoint = starPoint;
+    }
+
     public Integer getStarPoint() {
         return starPoint;
     }

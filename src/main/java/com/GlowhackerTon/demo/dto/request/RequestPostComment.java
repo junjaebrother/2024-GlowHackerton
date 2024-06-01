@@ -1,6 +1,7 @@
 package com.GlowhackerTon.demo.dto.request;
 
 public class RequestPostComment {
+    private String name;
     private String comment;
 
     private Integer starPoint;
@@ -11,5 +12,9 @@ public class RequestPostComment {
 
     public Integer getStarPoint() {
         return starPoint;
+    }
+
+    public String getName() {
+        return name;
     }
 }
