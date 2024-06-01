@@ -14,9 +14,9 @@ public class ResponseSummerizedShop {
         this.name = shop.getName();
         this.address = shop.getAddress();
         this.telephone = shop.getTelephone();
-        this.workingHour = shop.getWorkingHour();
+        this.workingHour = shop.getWorkingTime();
         this.briefExplanation = shop.getBriefExplanation();
-        this.star = shop.getStar();
+        this.star = shop.getStarPoint();
     }
 
     public String getName() {

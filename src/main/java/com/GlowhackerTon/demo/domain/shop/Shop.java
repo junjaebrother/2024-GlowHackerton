@@ -27,7 +27,7 @@ public class Shop {
     private String telephone;
 
     @Column(nullable = false, length = 40)
-    private String workingHour;
+    private String workingTime;
 
     @Column(nullable = false, length = 20)
     private String address;
@@ -38,7 +38,7 @@ public class Shop {
     @ManyToOne
     private Market market;
 
-    private Long star; // 별점 -> 프론트에서 알아서 정수 값 받아와서 ID개수만큼 나눠서 별점 표시할 것
+    private Long starPoint; // 별점 -> 프론트에서 알아서 정수 값 받아와서 ID개수만큼 나눠서 별점 표시할 것
     private Long x;
     private Long y;
     private Integer type;
@@ -60,16 +60,16 @@ public class Shop {
         return name;
     }
 
-    public Long getStar() {
-        return star;
+    public Long getStarPoint() {
+        return starPoint;
     }
 
     public String getTelephone() {
         return telephone;
     }
 
-    public String getWorkingHour() {
-        return workingHour;
+    public String getWorkingTime() {
+        return workingTime;
     }
 
     public String getAddress() {
@@ -88,17 +88,20 @@ public class Shop {
         return y;
     }
 
-    public Shop(String name, String telephone, String address, String workingHour, String briefExplanation, Long x, Long y) {
+    public Shop(Market market, String name, String telephone, String address, String workingTime, String briefExplanation, Long x, Long y, Integer type) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(String.format("%s점포는 존재하지 않습니다."));
         }
+        this.market = market;
         this.name = name;
         this.telephone = telephone;
-        this.workingHour = workingHour;
+        this.workingTime = workingTime;
         this.briefExplanation = briefExplanation;
         this.address = address;
         this.x = x;
         this.y = y;
+        this.starPoint = 0L;
+        this.type = type;
     }
 
     public List<ResponseGetMenu> getMenu(){
@@ -119,7 +122,7 @@ public class Shop {
         for(Comment c:comment){
             sum += c.getStarPoint();
         }
-        this.star = (long) (sum / (comment.size()));
+        this.starPoint = (long) (sum / (comment.size()));
     }
 
     public void saveMenu(RequestAddNewMenu request){

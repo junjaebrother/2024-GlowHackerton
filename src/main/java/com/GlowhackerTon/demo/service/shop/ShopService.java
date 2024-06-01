@@ -2,6 +2,8 @@ package com.GlowhackerTon.demo.service.shop;
 
 import com.GlowhackerTon.demo.domain.comment.Comment;
 import com.GlowhackerTon.demo.domain.comment.CommentRepository;
+import com.GlowhackerTon.demo.domain.market.Market;
+import com.GlowhackerTon.demo.domain.market.MarketRepository;
 import com.GlowhackerTon.demo.domain.menu.MenuRepository;
 import com.GlowhackerTon.demo.domain.shop.Shop;
 import com.GlowhackerTon.demo.domain.shop.ShopRepository;
@@ -25,11 +27,13 @@ public class ShopService {
     private final ShopRepository shopRepository;
     private final MenuRepository menuRepository;
     private final CommentRepository commentRepository;
+    private final MarketRepository marketRepository;
 
-    public ShopService(ShopRepository shopRepository, MenuRepository menuRepository, CommentRepository commentRepository) {
+    public ShopService(ShopRepository shopRepository, MenuRepository menuRepository, CommentRepository commentRepository, MarketRepository marketRepository) {
         this.shopRepository = shopRepository;
         this.menuRepository = menuRepository;
         this.commentRepository = commentRepository;
+        this.marketRepository = marketRepository;
     }
 
     @Transactional
@@ -66,8 +70,9 @@ public class ShopService {
 
     @Transactional
     public void addNewShop(RequestAddNewShop request) {
-        shopRepository.save(new Shop(request.getName(), request.getTelephone(), request.getAddress(),
-                request.getWorkingTime(), request.getBreif(), request.getX(), request.getY()));
+        Market market = marketRepository.findByName(request.getMarketName());
+        shopRepository.save(new Shop(market, request.getName(), request.getTelephone(), request.getAddress(),
+                request.getWorkingTime(), request.getBreif(), request.getX(), request.getY(), request.getType()));
     }
 
     @Transactional

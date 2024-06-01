@@ -60,7 +60,4 @@ public class ShopController {
     public void addNewMenu(@RequestBody RequestAddNewMenu request){
         shopService.addNewMenu(request);
     }
-
-
-
 }
