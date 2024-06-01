@@ -16,6 +16,19 @@ public class Shop {
 
     @Column(nullable = false, length = 20) // 시장 이름 길이제한 20자
     private String name;
+
+    @Column(nullable = false, length = 20)
+    private String telephone;
+
+    @Column(nullable = false, length = 40)
+    private String workingHour;
+
+    @Column(nullable = false, length = 20)
+    private String address;
+
+    @Column(nullable = false, length = 20)
+    private String briefExplanation;
+
     private Long star; // 별점 -> 프론트에서 알아서 정수 값 받아와서 ID개수만큼 나눠서 별점 표시할 것
     private int x;
     private int y;
