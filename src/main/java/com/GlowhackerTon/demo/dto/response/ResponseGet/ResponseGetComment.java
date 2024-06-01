@@ -1,12 +1,12 @@
-package com.GlowhackerTon.demo.dto.request;
+package com.GlowhackerTon.demo.dto.response.ResponseGet;
 
 import com.GlowhackerTon.demo.domain.comment.Comment;
 
-public class RequestGetComment {
+public class ResponseGetComment {
     private String comment;
     private int starPoint;
 
-    public RequestGetComment(Comment comment) {
+    public ResponseGetComment(Comment comment) {
         this.comment = comment.getUserComment();
         this.starPoint = comment.getStarPoint();
     }

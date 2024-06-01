@@ -1,9 +1,5 @@
 package com.GlowhackerTon.demo.dto.request.RequestNewShop;
 
-import com.GlowhackerTon.demo.dto.request.RequestGetComment;
-
-import java.util.List;
-
 public class RequestAddNewShop {
 
     private Integer type;

@@ -1,11 +1,15 @@
 package com.GlowhackerTon.demo.controller.shop;
 
 import com.GlowhackerTon.demo.dto.request.RequestAll.RequestAllShop;
+import com.GlowhackerTon.demo.dto.request.RequestPostComment;
+import com.GlowhackerTon.demo.dto.request.RequestShop.RequestShopDetails;
 import com.GlowhackerTon.demo.dto.request.RequestShop.RequestSummerizedShop;
+import com.GlowhackerTon.demo.dto.response.ResponseShop.ResponseShopDetails;
 import com.GlowhackerTon.demo.dto.response.ResponseShop.ResponseSummerizedShop;
 import com.GlowhackerTon.demo.dto.response.ResponseAllShop;
 import com.GlowhackerTon.demo.service.shop.ShopService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,22 +38,22 @@ public class ShopController {
     public ResponseSummerizedShop getShopSummerized(@RequestBody RequestSummerizedShop request){
         return shopService.getSummerizedShop(request);
     }
-    /***
-    @GetMapping("/shop")
-    public ResponseShopDetails getMarketDetails(@RequestBody RequestShopDetails request){
-        return shopService.getShop(request);
+
+    @GetMapping("/shop/detail")
+    public ResponseShopDetails getShopDetails(@RequestBody RequestShopDetails request){
+        return shopService.getShopDetails(request);
     }
 
-     @PostMapping("/shop/comment")
-     public void postShopComment(@RequestBody RequestPostComment request){
-        return shopService.postShopComment(request);
-     }
+    @PostMapping("/shop/comment")
+    public void postShopComment(@RequestBody RequestPostComment request){
+        shopService.postShopComment(request);
+    }
 
      @PostMapping("/shop/new")
      public void addNewShop(@RequestBody RequestAddNewShop request){
         return shopService.addNewShop(request);
      }
-     ***/
+
 
 
 }

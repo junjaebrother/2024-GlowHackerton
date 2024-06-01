@@ -2,10 +2,14 @@ package com.GlowhackerTon.demo.domain.shop;
 
 import com.GlowhackerTon.demo.domain.comment.Comment;
 import com.GlowhackerTon.demo.domain.menu.Menu;
+import com.GlowhackerTon.demo.dto.request.RequestPostComment;
+import com.GlowhackerTon.demo.dto.response.ResponseGet.ResponseGetComment;
+import com.GlowhackerTon.demo.dto.response.ResponseGet.ResponseGetMenu;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 public class Shop {
@@ -85,6 +89,23 @@ public class Shop {
         }
         this.name = name;
         this.star = star;
+    }
+
+    public List<ResponseGetMenu> getMenu(){
+        return this.menu.stream()
+                .map(ResponseGetMenu::new)
+                .collect(Collectors.toList());
+    }
+
+    public List<ResponseGetComment> getComment(){
+        return this.comment.stream()
+                .map(ResponseGetComment::new)
+                .collect(Collectors.toList());
+    }
+
+    public void saveComment(RequestPostComment request){
+        this.comment.add(new Comment(this, request.getComment(), request.getStarPoint()));
+
     }
 }
 
