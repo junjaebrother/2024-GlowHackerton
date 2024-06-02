@@ -26,7 +26,7 @@ GlowHackerTon의 주제인 < 지역 사회의 지속 가능한 발전을 위한 
 
 ### BE
 - Spring
-  DB- MySQL
+- DB - MySQL
 
 
 ## 사용자 플로우
